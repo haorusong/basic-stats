@@ -71,7 +71,7 @@ public class BasicStatsGUI implements View {
 		});
 		jpInput.add(jbReset);
 
-		// undo button and remove to last added number
+		// add undo button and remove to last added number
 		JButton jbUndo = new JButton("Undo");
 		jbUndo.addActionListener(new ActionListener() {
 			// The interface ActionListener defines a call-back method actionPerformed,
