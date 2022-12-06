@@ -115,6 +115,7 @@ public class BasicStatsGUI implements View {
 		update(model);
 	}
 
+	// add undo function
 	public void undo() {
 		// Clear the last ArrayList
 		model.undo();
