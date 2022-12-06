@@ -2,15 +2,13 @@ package gui.view;
 
 import model.BasicStatsModel;
 
-
 /**
  * The View interface represents a visualization of the BasicStatsModel.
  * This interface supports the MVC architecture pattern.
  * The interface also supports the Composite design pattern.
  * The View is the Component.
  */
-public interface View
-{    
+public interface View {
     /**
      * Updates this View to visualize the current BasicStatsModel.
      *

@@ -1,4 +1,6 @@
+collaborators : Haoru Song, Eric Hsu, Shenghao Guan, Zihao Zhang
 #Basic Statistics
+
 
 A Java-based implementation for descriptive statistics. This
 implementation is merely intended to be used in the CS520/620 course.
