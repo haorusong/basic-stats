@@ -9,43 +9,44 @@ import javax.swing.JTextField;
 import model.BasicStatsModel;
 import gui.view.View;
 
+public class AddNumberViewController implements View {
+	private BasicStatsGUI gui;
 
-public class AddNumberViewController implements View
-{
-    private BasicStatsGUI gui;
-    
-    /** The 'Add number' view/controller allows the user to input a number */
-    private JTextField jtfNumber;
-    /* package */ JButton jbAdd;
+	/** The 'Add number' view/controller allows the user to input a number */
+	private JTextField jtfNumber;
+	/* package */ JButton jbAdd;
 
-    
-    public AddNumberViewController(BasicStatsGUI gui, JPanel jpInput) {
-	this.gui = gui;
-	jtfNumber = new JTextField(5);
-	jbAdd = new JButton("Add number");
+	public AddNumberViewController(BasicStatsGUI gui, JPanel jpInput) {
+		this.gui = gui;
+		jtfNumber = new JTextField(5);
+		jbAdd = new JButton("Add number");
 
-	jpInput.add(jtfNumber);
-	jpInput.add(jbAdd);
-	
-	jbAdd.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-		    // Parse input and add number to the ArrayList	    
-		    Double num = Double.parseDouble(jtfNumber.getText());
-		    gui.addNumber(num);
-		}
-	    });
-    }
+		jpInput.add(jtfNumber);
+		jpInput.add(jbAdd);
 
-    public void update(BasicStatsModel model) {
-	// Reset
-	if (model.getArrayDouble().length == 0) {
-	    jtfNumber.setText("");
+		jbAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Parse input and add number to the ArrayList
+				Double num = Double.parseDouble(jtfNumber.getText());
+				gui.addNumber(num);
+			}
+		});
 	}
-    }
 
-    public String getStringValue() {	
-	// This is a snapshot of the current value to support
-	// testability and debuggability without breaking the encapsulation.
-	return jtfNumber.getText();
-    }
+	public void update(BasicStatsModel model) {
+		// Reset
+		if (model.getArrayDouble().length == 0) {
+			jtfNumber.setText("");
+		}
+		// // Undo
+		// if (model.getArrayDouble().length > 0) {
+		// jtfNumber.setText("");
+		// }
+	}
+
+	public String getStringValue() {
+		// This is a snapshot of the current value to support
+		// testability and debuggability without breaking the encapsulation.
+		return jtfNumber.getText();
+	}
 }

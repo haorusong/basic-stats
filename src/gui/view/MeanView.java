@@ -7,39 +7,40 @@ import javax.swing.JTextField;
 import model.BasicStatsModel;
 import gui.BasicStats;
 
+public class MeanView implements View {
+	private JLabel jlMean;
+	private JTextField jtfMean;
 
-public class MeanView implements View
-{
-    private JLabel jlMean;
-    private JTextField jtfMean;
+	public MeanView(JPanel jpStats) {
+		super();
 
-    
-    public MeanView(JPanel jpStats) {
-	super();
+		jlMean = new JLabel("Mean:");
+		jtfMean = new JTextField(5);
+		jtfMean.setEditable(false);
 
-	jlMean = new JLabel("Mean:");
-	jtfMean = new JTextField(5);
-	jtfMean.setEditable(false);
-
-	jpStats.add(jlMean);
-	jpStats.add(jtfMean);
-    }
-
-    public void update(BasicStatsModel model) {
-	// Reset
-	if (model.getArrayDouble().length == 0) {
-	    jtfMean.setText("");
+		jpStats.add(jlMean);
+		jpStats.add(jtfMean);
 	}
-	// Add number
-	else {
-	    double mean = BasicStats.mean(model.getArrayDouble());
-	    jtfMean.setText("" + mean);
-	}
-    }
 
-    public String getStringValue() {
-	// This is a snapshot of the current value to support
-	// testability and debuggability without breaking the encapsulation.
-	return jtfMean.getText();
-    }
+	public void update(BasicStatsModel model) {
+		// Reset
+		if (model.getArrayDouble().length == 0) {
+			jtfMean.setText("");
+		}
+		// Add number
+		else {
+			double mean = BasicStats.mean(model.getArrayDouble());
+			jtfMean.setText("" + mean);
+		}
+		// Undo
+		// if (model.getArrayDouble().length > 0) {
+		// jtfMean.setText("");
+		// }
+	}
+
+	public String getStringValue() {
+		// This is a snapshot of the current value to support
+		// testability and debuggability without breaking the encapsulation.
+		return jtfMean.getText();
+	}
 }

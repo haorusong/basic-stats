@@ -6,39 +6,40 @@ import javax.swing.JTextField;
 
 import model.BasicStatsModel;
 
+public class CountView implements View {
+	private JLabel jlCount;
+	private JTextField jtfCount;
 
-public class CountView implements View
-{
-    private JLabel jlCount;
-    private JTextField jtfCount;
+	public CountView(JPanel jpStats) {
+		super();
 
-    
-    public CountView(JPanel jpStats) {
-	super();
+		jlCount = new JLabel("Numbers:");
+		jtfCount = new JTextField(5);
+		jtfCount.setEditable(false);
 
-	jlCount = new JLabel("Numbers:");
-	jtfCount = new JTextField(5);
-	jtfCount.setEditable(false);
-
-	jpStats.add(jlCount);
-	jpStats.add(jtfCount);
-    }
-
-    public void update(BasicStatsModel model) {
-	// Reset
-	if (model.getArrayDouble().length == 0) {
-	    this.jtfCount.setText("");
+		jpStats.add(jlCount);
+		jpStats.add(jtfCount);
 	}
-	// Add number
-	else {
-	    int count = model.getArrayDouble().length;
-	    this.jtfCount.setText("" + count);
-	}
-    }
 
-    public String getStringValue() {
-	// This is a snapshot of the current value to support
-	// testability and debuggability without breaking the encapsulation.
-	return jtfCount.getText();
-    }
+	public void update(BasicStatsModel model) {
+		// Reset
+		if (model.getArrayDouble().length == 0) {
+			this.jtfCount.setText("");
+		}
+		// Add number
+		else {
+			int count = model.getArrayDouble().length;
+			this.jtfCount.setText("" + count);
+		}
+		// Undo
+		// if (model.getArrayDouble().length > 0) {
+		// this.jtfCount.setText("");
+		// }
+	}
+
+	public String getStringValue() {
+		// This is a snapshot of the current value to support
+		// testability and debuggability without breaking the encapsulation.
+		return jtfCount.getText();
+	}
 }
