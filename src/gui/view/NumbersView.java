@@ -28,12 +28,12 @@ public class NumbersView implements View {
 	 */
 	public void update(BasicStatsModel model) {
 		// Reset
-		// if 按下reset
+
 		if (model.getArrayDouble().length == 0) {
 			jtaNumbers.setText("");
 		}
 		// Add number
-		// else if 按下 add 按钮
+		// Edited for undo function
 		else {
 			// Update the displayed list of numbers
 			// double num = model.getArrayDouble()[model.getArrayDouble().length - 1];
